@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 export default function ChatButton() {
   return (
     <motion.a
-      href="https://t.me/SiTechagencybot"
+      href="https://t.me/Sitechschoolbot"
       target="_blank"
       rel="noopener noreferrer"
       initial={{ scale: 0, opacity: 0 }}
