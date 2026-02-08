@@ -31,11 +31,11 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-[1.1]"
+          className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-[1.1]"
           style={{ letterSpacing: '-0.03em' }}
         >
-          მოამზადეთ თქვენი <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 animate-gradient bg-[length:200%_auto]" 
+          მოამზადეთ თქვენი <span className="hidden md:inline"><br /></span>
+          <span className="break-words text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 animate-gradient bg-[length:200%_auto]" 
                 style={{ filter: 'drop-shadow(0 0 40px rgba(6, 182, 212, 0.6)) drop-shadow(0 0 80px rgba(139, 92, 246, 0.4))' }}>
             ბიზნესი მომავლისთვის
           </span>

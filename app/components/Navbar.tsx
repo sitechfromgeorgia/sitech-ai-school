@@ -50,14 +50,16 @@ export default function Navbar() {
             </Link>
           ))}
           <Link
-            href="/login"
+            href="https://t.me/SiTechagencybot"
+            target="_blank"
+            rel="noopener noreferrer"
             className="px-5 py-2 rounded-full bg-white/5 border border-white/10 text-white text-sm font-medium hover:bg-white/20 hover:border-white/20 backdrop-blur-sm hover:shadow-[0_0_15px_rgba(255,255,255,0.1)]"
             style={{ transition: 'all 0.4s var(--ease-smooth)' }}
           >
             შესვლა
           </Link>
           <Link
-            href="/start"
+            href="/courses/ai-automation"
             className="relative px-5 py-2 rounded-full bg-cyan-600 text-white text-sm font-medium overflow-hidden group shadow-[0_0_20px_rgba(6,182,212,0.3)] hover:shadow-[0_0_40px_rgba(6,182,212,0.6)] shine-onsus"
             style={{ transition: 'all 0.4s var(--ease-elegant)' }}
           >
@@ -93,14 +95,16 @@ export default function Navbar() {
           ))}
           <div className="grid grid-cols-2 gap-4 mt-4">
             <Link
-              href="/login"
+              href="https://t.me/SiTechagencybot"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-center py-3 rounded-lg bg-white/5 text-white font-medium hover:bg-white/10 transition-colors"
               onClick={() => setIsOpen(false)}
             >
               შესვლა
             </Link>
             <Link
-              href="/start"
+              href="/courses/ai-automation"
               className="text-center py-3 rounded-lg bg-cyan-600 text-white font-medium shadow-lg shadow-cyan-500/20"
               onClick={() => setIsOpen(false)}
             >

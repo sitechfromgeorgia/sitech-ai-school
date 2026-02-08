@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Bot, Code2, Cpu, Globe, ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 const courses = [
   {
@@ -9,24 +10,28 @@ const courses = [
     desc: "დაეუფლეთ რუტინული ამოცანების ავტომატიზაციას უახლესი AI აგენტებით.",
     icon: Bot,
     color: "from-blue-500 to-cyan-500",
+    slug: "ai-automation",
   },
   {
     title: "Web დეველოპმენტი",
     desc: "შექმენით თანამედროვე, ადაპტური აპლიკაციები React, Next.js და Tailwind CSS-ის გამოყენებით.",
     icon: Code2,
     color: "from-purple-500 to-pink-500",
+    slug: "web-development",
   },
   {
     title: "პროცესების ავტომატიზაცია",
     desc: "დახვეწეთ სამუშაო პროცესები n8n და Make-ით ეფექტურობის 10x გასაზრდელად.",
     icon: Cpu,
     color: "from-emerald-500 to-teal-500",
+    slug: "process-automation",
   },
   {
     title: "ციფრული ტრანსფორმაცია",
     desc: "უხელმძღვანელეთ ციფრულ ცვლილებებს და მოამზადეთ ორგანიზაცია მომავლისთვის.",
     icon: Globe,
     color: "from-amber-500 to-orange-500",
+    slug: "digital-transformation",
   },
 ];
 
@@ -107,9 +112,9 @@ export default function Courses() {
                   {course.desc}
                 </p>
                 
-                <div className="flex items-center text-sm font-medium text-cyan-400 group-hover:text-cyan-300 cursor-pointer hover-line inline-flex" style={{ transition: 'color 0.3s var(--ease-smooth)' }}>
+                <Link href={`/courses/${course.slug}`} className="flex items-center text-sm font-medium text-cyan-400 group-hover:text-cyan-300 cursor-pointer hover-line inline-flex" style={{ transition: 'color 0.3s var(--ease-smooth)' }}>
                   გაიგე მეტი <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-2" style={{ transition: 'transform 0.3s var(--ease-smooth)' }} />
-                </div>
+                </Link>
               </div>
 
               {/* Shine effect on hover */}
