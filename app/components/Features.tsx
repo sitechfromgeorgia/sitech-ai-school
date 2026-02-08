@@ -30,21 +30,26 @@ export default function Features() {
             
             <ul className="space-y-6">
               {[
-                { icon: Brain, text: "სირთულის ადაპტური ზრდა შედეგების მიხედვით" },
-                { icon: Database, text: "რეალურ დროში უკუკავშირი კოდსა და პროექტებზე" },
-                { icon: Workflow, text: "ინდივიდუალური სასწავლო გზები თქვენი კარიერული მიზნებისთვის" },
-              ].map((item, index) => (
+                "სირთულის ადაპტური ზრდა შედეგების მიხედვით",
+                "რეალურ დროში უკუკავშირი კოდსა და პროექტებზე",
+                "ინდივიდუალური სასწავლო გზები თქვენი კარიერული მიზნებისთვის",
+              ].map((text, index) => (
                 <motion.li 
                   key={index} 
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.1 * index }}
+                  viewport={{ once: true }}
+                  transition={{ 
+                    delay: 0.1 * index,
+                    duration: 0.5,
+                    ease: [0.165, 0.84, 0.44, 1]
+                  }}
                   className="flex items-center gap-4 group"
                 >
-                  <div className="p-3 rounded-xl bg-white/5 border border-white/10 text-cyan-400 group-hover:bg-cyan-500/10 group-hover:border-cyan-500/30 group-hover:shadow-[0_0_15px_rgba(6,182,212,0.2)] transition-all duration-300">
-                    <item.icon className="w-5 h-5" />
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500/20 to-purple-500/20 border border-cyan-500/30 text-cyan-400 flex items-center justify-center font-bold text-lg group-hover:border-cyan-400 group-hover:shadow-[0_0_20px_rgba(6,182,212,0.3)]" style={{ transition: 'all 0.3s var(--ease-smooth)' }}>
+                    0{index + 1}
                   </div>
-                  <span className="text-slate-300 font-medium group-hover:text-white transition-colors">{item.text}</span>
+                  <span className="text-slate-300 font-medium group-hover:text-white" style={{ transition: 'color 0.3s var(--ease-smooth)' }}>{text}</span>
                 </motion.li>
               ))}
             </ul>
@@ -100,8 +105,15 @@ export default function Features() {
                 <motion.div 
                   initial={{ width: 0 }}
                   whileInView={{ width: "98%" }}
-                  transition={{ duration: 1.5, ease: "easeOut" }}
-                  className="bg-cyan-500 h-1.5 rounded-full shadow-[0_0_10px_cyan]"
+                  viewport={{ once: true }}
+                  transition={{ 
+                    duration: 1.5, 
+                    ease: [0.165, 0.84, 0.44, 1]
+                  }}
+                  className="bg-gradient-to-r from-cyan-500 to-blue-500 h-1.5 rounded-full"
+                  style={{ 
+                    boxShadow: '0 0 10px rgba(6,182,212,0.6), 0 0 20px rgba(6,182,212,0.4), inset 0 0 10px rgba(6,182,212,0.3)'
+                  }}
                 ></motion.div>
               </div>
             </div>
@@ -109,9 +121,32 @@ export default function Features() {
             <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-purple-500/10 to-cyan-500/10 blur-2xl -z-10 group-hover:opacity-75 transition-opacity duration-500"></div>
           </motion.div>
           
-          {/* Decorative Orbs */}
-          <div className="absolute -top-20 -right-20 w-80 h-80 bg-purple-600/10 rounded-full blur-[100px] animate-pulse"></div>
-          <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-cyan-600/10 rounded-full blur-[100px] animate-pulse delay-700"></div>
+          {/* Animated Gradient Orbs */}
+          <motion.div 
+            className="absolute -top-20 -right-20 w-80 h-80 bg-purple-600/10 rounded-full blur-[100px]"
+            animate={{
+              scale: [1, 1.2, 1],
+              opacity: [0.3, 0.6, 0.3],
+            }}
+            transition={{
+              duration: 8,
+              repeat: Infinity,
+              ease: [0.165, 0.84, 0.44, 1]
+            }}
+          ></motion.div>
+          <motion.div 
+            className="absolute -bottom-20 -left-20 w-80 h-80 bg-cyan-600/10 rounded-full blur-[100px]"
+            animate={{
+              scale: [1, 1.3, 1],
+              opacity: [0.3, 0.6, 0.3],
+            }}
+            transition={{
+              duration: 10,
+              repeat: Infinity,
+              ease: [0.165, 0.84, 0.44, 1],
+              delay: 1
+            }}
+          ></motion.div>
         </div>
       </div>
     </section>

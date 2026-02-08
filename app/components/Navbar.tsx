@@ -31,9 +31,10 @@ export default function Navbar() {
       }`}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
-        <Link href="/" className="text-2xl font-bold text-white tracking-tighter group relative">
-          SiTech<span className="text-cyan-400">.AI</span>
-          <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 transition-all group-hover:w-full"></span>
+        <Link href="/" className="text-2xl font-bold text-white tracking-tighter group relative transition-all duration-300">
+          SiTech<span className="text-cyan-400 group-hover:drop-shadow-[0_0_8px_rgba(6,182,212,0.8)] transition-all duration-300">.AI</span>
+          <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-500 shadow-[0_0_8px_rgba(6,182,212,0.6)]" 
+                style={{ transition: 'width 0.4s var(--ease-smooth)' }}></span>
         </Link>
 
         {/* Desktop Menu */}
@@ -42,24 +43,25 @@ export default function Navbar() {
             <Link
               key={item.name}
               href={item.href}
-              className="text-sm font-medium text-slate-300 hover:text-white transition-colors relative group"
+              className="text-sm font-medium text-slate-300 hover:text-white hover-line"
+              style={{ transition: 'color 0.3s var(--ease-smooth)' }}
             >
               {item.name}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 transition-all group-hover:w-full"></span>
             </Link>
           ))}
           <Link
             href="/login"
-            className="px-5 py-2 rounded-full bg-white/5 border border-white/10 text-white text-sm font-medium hover:bg-white/20 hover:border-white/20 transition-all backdrop-blur-sm"
+            className="px-5 py-2 rounded-full bg-white/5 border border-white/10 text-white text-sm font-medium hover:bg-white/20 hover:border-white/20 backdrop-blur-sm hover:shadow-[0_0_15px_rgba(255,255,255,0.1)]"
+            style={{ transition: 'all 0.4s var(--ease-smooth)' }}
           >
             შესვლა
           </Link>
           <Link
             href="/start"
-            className="relative px-5 py-2 rounded-full bg-cyan-600 text-white text-sm font-medium overflow-hidden group shadow-[0_0_20px_rgba(6,182,212,0.3)] hover:shadow-[0_0_30px_rgba(6,182,212,0.5)] transition-all"
+            className="relative px-5 py-2 rounded-full bg-cyan-600 text-white text-sm font-medium overflow-hidden group shadow-[0_0_20px_rgba(6,182,212,0.3)] hover:shadow-[0_0_40px_rgba(6,182,212,0.6)] shine-onsus"
+            style={{ transition: 'all 0.4s var(--ease-elegant)' }}
           >
-            <span className="relative z-10 group-hover:text-white transition-colors">დაწყება</span>
-            <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <span className="relative z-10">დაწყება</span>
           </Link>
         </div>
 

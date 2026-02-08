@@ -52,42 +52,71 @@ export default function Courses() {
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={{
+            visible: {
+              transition: {
+                staggerChildren: 0.15
+              }
+            }
+          }}
+        >
           {courses.map((course, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1, duration: 0.5 }}
-              whileHover={{ scale: 1.05, translateY: -10 }}
-              className="glass-card group relative p-8 rounded-3xl transition-all duration-500 overflow-hidden cursor-none"
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0 }
+              }}
+              whileHover={{ 
+                scale: 1.05, 
+                translateY: -10,
+                transition: { 
+                  duration: 0.4,
+                  ease: [0, 0, 0.44, 1.18]
+                }
+              }}
+              className="glass-card group relative p-8 rounded-3xl overflow-hidden cursor-none border-2 border-white/10 hover:border-transparent"
+              style={{ 
+                transition: 'all 0.4s var(--ease-smooth)'
+              } as any}
             >
-              <div className={`absolute inset-0 bg-gradient-to-br ${course.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}></div>
+              <div className={`absolute inset-0 bg-gradient-to-br ${course.color} opacity-0 group-hover:opacity-10`} style={{ transition: 'opacity 0.5s var(--ease-smooth)' }}></div>
               
               <div className="relative z-10">
-                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${course.color} flex items-center justify-center mb-6 shadow-lg shadow-cyan-900/20 group-hover:shadow-[0_0_20px_rgba(6,182,212,0.4)] transition-all duration-300`}>
+                <motion.div 
+                  className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${course.color} flex items-center justify-center mb-6 shadow-lg shadow-cyan-900/20 group-hover:shadow-[0_0_20px_rgba(6,182,212,0.4)]`}
+                  whileHover={{ 
+                    rotate: 5,
+                    transition: { duration: 0.3, ease: [0.3, 1, 0.35, 1] }
+                  }}
+                  style={{ transition: 'all 0.3s var(--ease-smooth)' }}
+                >
                   <course.icon className="w-7 h-7 text-white" />
-                </div>
+                </motion.div>
                 
                 <h3 className="text-xl font-bold text-white mb-3 group-hover:text-cyan-300 transition-colors">
                   {course.title}
                 </h3>
                 
-                <p className="text-slate-400 mb-6 text-sm leading-relaxed group-hover:text-slate-300 transition-colors">
+                <p className="text-slate-400 mb-6 text-sm leading-relaxed group-hover:text-slate-300" style={{ transition: 'color 0.3s var(--ease-smooth)' }}>
                   {course.desc}
                 </p>
                 
-                <div className="flex items-center text-sm font-medium text-cyan-400 group-hover:text-cyan-300 transition-colors cursor-pointer">
-                  გაიგე მეტი <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform" />
+                <div className="flex items-center text-sm font-medium text-cyan-400 group-hover:text-cyan-300 cursor-pointer hover-line inline-flex" style={{ transition: 'color 0.3s var(--ease-smooth)' }}>
+                  გაიგე მეტი <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-2" style={{ transition: 'transform 0.3s var(--ease-smooth)' }} />
                 </div>
               </div>
 
               {/* Shine effect on hover */}
-              <div className="absolute top-0 -left-[100%] w-1/2 h-full bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12 group-hover:left-[200%] transition-all duration-1000 ease-in-out"></div>
+              <div className="absolute top-0 -left-[100%] w-1/2 h-full bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12 group-hover:left-[200%]" style={{ transition: 'all 1s var(--ease-smooth)' }}></div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
