@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Noto_Sans_Georgian } from "next/font/google";
 import "./globals.css";
 import CustomCursor from "./components/CustomCursor";
+import ChatBot from "./components/ChatBot";
 
 const noto = Noto_Sans_Georgian({ subsets: ["georgian", "latin"], variable: "--font-noto-georgian" });
 
@@ -23,6 +24,7 @@ export default function RootLayout({
         <div className="fixed right-0 top-0 -z-10 h-full w-full bg-[radial-gradient(circle_500px_at_50%_200px,#3b82f636,transparent)]"></div>
         <CustomCursor />
         {children}
+        <ChatBot />
       </body>
     </html>
   );
